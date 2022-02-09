@@ -13,7 +13,7 @@ import pack.AppiumFramework.Base;
 
 public class DragAndDrop extends Base{
 
-	public static void main(String[] args) throws IOException {
+	public static void main(String[] args) throws IOException, InterruptedException {
 		AndroidDriver<AndroidElement> driver=getDriver("APIDemoApp");
 		driver.findElementByXPath("//android.widget.TextView[@text='Views']").click();
 		driver.findElementByXPath("//android.widget.TextView[@text='Drag and Drop']").click();

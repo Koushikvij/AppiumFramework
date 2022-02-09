@@ -17,7 +17,7 @@ public class ProductDetailPage {
 	
 	public ProductDetailPage(AndroidDriver<AndroidElement> driver)
 	{
-		PageFactory.initElements(new AppiumFieldDecorator(driver), this);//AppiumFieldDecorator provides compatibility for Android and iOS
+		PageFactory.initElements(new AppiumFieldDecorator(driver), this);
 		this.driver=driver;
 	}
 

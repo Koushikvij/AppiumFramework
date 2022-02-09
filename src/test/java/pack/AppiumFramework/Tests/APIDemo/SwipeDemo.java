@@ -16,7 +16,7 @@ import static io.appium.java_client.touch.offset.ElementOption.element;
 
 public class SwipeDemo extends Base{
 
-	public static void main(String[] args) throws IOException {
+	public static void main(String[] args) throws IOException, InterruptedException {
 		AndroidDriver<AndroidElement> driver=getDriver("APIDemoApp");
 		driver.findElementByXPath("//android.widget.TextView[@text='Views']").click();
 		driver.findElementByXPath("//android.widget.TextView[@text='Date Widgets']").click();

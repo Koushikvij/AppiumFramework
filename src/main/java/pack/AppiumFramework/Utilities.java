@@ -5,8 +5,15 @@ import static io.appium.java_client.touch.TapOptions.tapOptions;
 import static io.appium.java_client.touch.offset.ElementOption.element;
 import static java.time.Duration.ofSeconds;
 
+import java.util.concurrent.TimeUnit;
+
+import org.openqa.selenium.By;
+import org.openqa.selenium.NoSuchElementException;
+import org.openqa.selenium.TimeoutException;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.ui.ExpectedConditions;
+import org.openqa.selenium.support.ui.FluentWait;
+import org.openqa.selenium.support.ui.Wait;
 import org.openqa.selenium.support.ui.WebDriverWait;
 
 import io.appium.java_client.MobileElement;
@@ -57,14 +64,18 @@ public class Utilities {
 		//driver.findElement(MobileBy.AndroidUIAutomator("new UiScrollable(new UiSelector().scrollable(true).instance(0)).scrollIntoView(new UiSelector().textMatches(\"" + scrollText + "\").instance(0))"));   
 	}
 	
+	@SuppressWarnings({ "rawtypes", "unchecked", "deprecation" })
 	public boolean waitForElement(WebElement targetResourceElement)
 	{
 		boolean isElementPresent;
 		try{
-			MobileElement mobileElement =  (MobileElement) targetResourceElement;
-			WebDriverWait wait = new WebDriverWait(driver, 10);
-			wait.until(ExpectedConditions.visibilityOf(mobileElement));
-			isElementPresent = mobileElement.isDisplayed();
+			Wait wait = new FluentWait(driver)
+			        .withTimeout(10, TimeUnit.SECONDS)
+			        .pollingEvery(1000, TimeUnit.MILLISECONDS)
+			        .ignoring(NoSuchElementException.class)
+			        .ignoring(TimeoutException.class);
+			wait.until(ExpectedConditions.visibilityOfElementLocated((By) targetResourceElement));
+			isElementPresent = targetResourceElement.isDisplayed();
 			return isElementPresent;	
 		}catch(Exception e){
 			isElementPresent = false;

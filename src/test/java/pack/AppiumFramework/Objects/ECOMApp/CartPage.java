@@ -14,7 +14,8 @@ public class CartPage {
 
 	public CartPage(AndroidDriver<AndroidElement> driver)
 	{
-		PageFactory.initElements(new AppiumFieldDecorator(driver), this);//AppiumFieldDecorator provides compatibility for Android and iOS
+		PageFactory.initElements(new AppiumFieldDecorator(driver), this);
+//		PageFactory.initElements(driver, this);//AppiumFieldDecorator provides compatibility for Android and iOS
 	}
 
 	@AndroidFindBy(id="com.androidsample.generalstore:id/productName") 

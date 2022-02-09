@@ -17,7 +17,7 @@ import static io.appium.java_client.touch.offset.ElementOption.element;
 
 public class TapAndLongPress extends Base{
 
-	public static void main(String[] args) throws IOException {
+	public static void main(String[] args) throws IOException, InterruptedException {
 		AndroidDriver<AndroidElement> driver=getDriver("APIDemoApp");
 		driver.findElementByAndroidUIAutomator("text(\"Views\")").click();
 		

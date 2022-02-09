@@ -1,2 +1,3 @@
 cd C:\Users\koush\AppData\Local\Android\Sdk\emulator\
-emulator -avd Pixel4
+adb emu kill
+adb kill-server

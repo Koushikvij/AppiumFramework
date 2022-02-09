@@ -10,7 +10,7 @@ import io.appium.java_client.android.AndroidElement;
 
 public class FormFill extends Base{
 
-	public static void main(String[] args) throws IOException {
+	public static void main(String[] args) throws IOException, InterruptedException {
 		startServer();
 		AndroidDriver<AndroidElement> driver=getDriver("GeneralStoreApp");
 		FormPage formPage=new FormPage(driver);

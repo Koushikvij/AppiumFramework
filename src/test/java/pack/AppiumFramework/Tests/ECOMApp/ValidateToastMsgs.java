@@ -11,7 +11,7 @@ import pack.AppiumFramework.Objects.ECOMApp.FormPage;
 
 public class ValidateToastMsgs extends Base{
 
-	public static void main(String[] args) throws IOException {
+	public static void main(String[] args) throws IOException, InterruptedException {
 		startServer();
 		AndroidDriver<AndroidElement> driver=getDriver("GeneralStoreApp");
 		FormPage formPage=new FormPage(driver);

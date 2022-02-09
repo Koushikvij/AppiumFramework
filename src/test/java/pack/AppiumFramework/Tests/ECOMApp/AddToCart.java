@@ -5,6 +5,7 @@ import java.util.Set;
 
 import org.openqa.selenium.Keys;
 import org.testng.Assert;
+import org.testng.annotations.Test;
 
 import pack.AppiumFramework.Objects.Browser.LandingPage;
 import pack.AppiumFramework.Objects.ECOMApp.CartPage;
@@ -17,11 +18,13 @@ import pack.AppiumFramework.Utilities;
 
 public class AddToCart extends Base{
 
-	public static void main(String[] args) throws InterruptedException, IOException {
+	@Test
+	public void addCart() throws InterruptedException, IOException {
 		startServer();
 		AndroidDriver<AndroidElement> driver=getDriver("GeneralStoreApp");
-		FormPage formPage=new FormPage(driver);
+		Thread.sleep(5000);
 		ProductDetailPage pdp=new ProductDetailPage(driver);
+		FormPage formPage=new FormPage(driver);
 		CartPage cart=new CartPage(driver);
 		LandingPage landing=new LandingPage(driver);
 		Utilities util=new Utilities(driver);
@@ -89,17 +92,18 @@ public class AddToCart extends Base{
 		for (String contextName : contextNames) {
 		    System.out.println(contextName); //prints out something like NATIVE_APP \n WEBVIEW_1
 		}
-		driver.context((contextNames.toArray())[2].toString()); // set context to WEBVIEW_1
-
-		//do some web testing
-		landing.searchBox.sendKeys("Hello");
-		landing.searchBox.sendKeys(Keys.ENTER);
-		
-		//code to press the back button on the Android device
-		util.AndroidMove("BACK");
-		
-		// do more native testing if we want
-		driver.context((contextNames.toArray())[0].toString());
+//		Object[] arrContextNames = contextNames.toArray();
+//		driver.context("WEBVIEW_com.androidsample.generalstore"); // set context to WEBVIEW_1
+//
+//		//do some web testing
+//		landing.searchBox.sendKeys("Hello");
+//		landing.searchBox.sendKeys(Keys.ENTER);
+//		
+//		//code to press the back button on the Android device
+//		util.AndroidMove("BACK");
+//		
+//		// do more native testing if we want
+//		driver.context((contextNames.toArray())[0].toString());
 		stopServer();
 	}
 }

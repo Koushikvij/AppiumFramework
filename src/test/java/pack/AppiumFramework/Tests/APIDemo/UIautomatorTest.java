@@ -7,7 +7,7 @@ import pack.AppiumFramework.Base;
 
 public class UIautomatorTest extends Base{
 
-	public static void main(String[] args) throws IOException {
+	public static void main(String[] args) throws IOException, InterruptedException {
 		AndroidDriver<AndroidElement> driver=getDriver("APIDemoApp");
 		//driver.findElementByAndroidUIAutomator("attribute('value')"); -- format for UIAutomator identifier
 		driver.findElementByAndroidUIAutomator("text(\"Views\")").click();

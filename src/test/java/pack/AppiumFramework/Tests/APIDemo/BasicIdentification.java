@@ -11,7 +11,7 @@ import pack.AppiumFramework.Objects.APIDemo.Preferences;
 
 public class BasicIdentification extends Base{
 	
-	public static void main(String[] args) throws IOException {
+	public static void main(String[] args) throws IOException, InterruptedException {
 		AndroidDriver<AndroidElement> driver=getDriver("APIDemoApp");
 		//xpath syntax
 		//tagname[@attributename='value']

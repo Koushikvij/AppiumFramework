@@ -12,7 +12,7 @@ public class LandingPage {
 
 	public LandingPage(AndroidDriver<AndroidElement> driver)
 	{
-		PageFactory.initElements(new AppiumFieldDecorator(driver), this);//AppiumFieldDecorator provides compatibility for Android and iOS
+		PageFactory.initElements(new AppiumFieldDecorator(driver), this);
 	}
 
 	@AndroidFindBy(xpath="//*[@name='q']") 
